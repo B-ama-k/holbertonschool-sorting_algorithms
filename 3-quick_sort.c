@@ -33,14 +33,15 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 
 	for (j = low; j < high; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
+			i++;
 			if (i != j)
 			{
 				swap_ints(&array[i], &array[j]);
 				print_array(array, size);
 			}
-			i++;
+
 		}
 	}
 
@@ -50,7 +51,7 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 		print_array(array, size);
 	}
 
-	return (i);
+	return (i + 1);
 }
 
 /**
@@ -60,15 +61,15 @@ int lomuto_partition(int *array, int low, int high, size_t size)
  * @high: end index
  * @size: size of array
  */
-void quick_sort_recursion(int *array, int low, int high, size_t size)
+static void quick_sort_recursion(int *array, int low, int high, size_t size)
 {
-	int pivot;
+	int pivot_index;
 
 	if (low < high)
 	{
-		pivot = lomuto_partition(array, low, high, size);
-		quick_sort_recursion(array, low, pivot - 1, size);
-		quick_sort_recursion(array, pivot + 1, high, size);
+		pivot_index = lomuto_partition(array, low, high, size);
+		quick_sort_recursion(array, low, pivot_index - 1, size);
+		quick_sort_recursion(array, pivot_index + 1, high, size);
 	}
 }
 
