@@ -5,6 +5,7 @@
  * @a: first integer
  * @b: second integer
  */
+
 void swap_ints(int *a, int *b)
 {
 	int tmp;
@@ -23,6 +24,7 @@ void swap_ints(int *a, int *b)
  *
  * Return: pivot index
  */
+
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
