@@ -28,8 +28,8 @@ void swap_ints(int *a, int *b)
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	int pivot, i, j;
-	int pivot = array[high];
-	int i = low - 1;
+	pivot = array[high];
+	i = low - 1;
 
 	for (j = low; j < high; j++)
 	{
@@ -79,7 +79,7 @@ void quick_sort_recursion(int *array, int low, int high, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (!array == NULL || size < 2)
+	if (!array || size < 2)
 		return;
 
 	quick_sort_recursion(array, 0, size - 1, size);
