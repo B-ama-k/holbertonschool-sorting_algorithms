@@ -1,3 +1,6 @@
-O(n)
+O(n)      # Best case (tableau déjà trié, grâce au drapeau swapped)
 
-O(n^2)
+O(n^2)    # Average case
+
+O(n^2)    # Worst case
+
